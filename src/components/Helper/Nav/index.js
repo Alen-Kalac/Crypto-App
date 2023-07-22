@@ -1,11 +1,11 @@
 import './index.scss';
 
-function Home() {
+function Header() {
   return (
     <>
-    <h1>Home</h1>
+    Header
     </>
   );
 }
 
-export default Home;
+export default Header;

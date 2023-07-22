@@ -1,11 +1,11 @@
 import './index.scss';
 
-function Home() {
+function Footer() {
   return (
     <>
-    <h1>Home</h1>
+    Footer
     </>
   );
 }
 
-export default Home;
+export default Footer;

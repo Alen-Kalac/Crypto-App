@@ -1,16 +1,32 @@
 import { Route, Routes } from 'react-router'
 import './App.scss'
+import Coins from './components/Pages/Coins'
+import Home from './components/Pages/Home'
+import Exchanges from './components/Pages/Exchanges'
+import AboutUs  from './components/Pages/AboutUs'
+import MyProfile from './components/Pages/MyProfile'
+import Favorites from './components/Pages/Favorites'
+
+import Header from './components/Helper/Nav'
+import Footer from './components/Helper/Footer'
+
 
 
 function App() {
   return (
-    <div className='App'>
-      <Nav />
+  <>
+         <Header/>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/coins' element={<Coins />} />
+        <Route path='exchanges' element={<Exchanges />} />
+        <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/my-profile' element={<MyProfile />} />
+        <Route path='/favorites' element={<Favorites />} />
       </Routes>
-      <Footer />
-    </div>
+        <Footer/>
+  </>
+    
   )
 }
 
