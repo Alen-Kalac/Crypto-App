@@ -37,7 +37,7 @@ function Home() {
     fetchData();
   }, []);
   return (
-    <div className='HomePage'>
+    <div className='home-page'>
     <h1>Top 10 Coins</h1>
       <div className="coin-list">
       {coinData.map((coin) => (

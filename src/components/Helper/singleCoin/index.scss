@@ -6,15 +6,16 @@
     align-items: center;
     border-bottom: 2px solid lightgreen;
 
-    div{
+    .div{
         flex: 1;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         height: 100%;
         &:nth-child(1){
          background-color: red;
         }
     }
+
+   
 
 }
