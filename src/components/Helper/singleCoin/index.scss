@@ -1,0 +1,21 @@
+.coin-description{
+    width: 80%;
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid lightgreen;
+
+    .div{
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        height: 100%;
+        &:nth-child(1){
+         background-color: red;
+        }
+    }
+
+   
+
+}
