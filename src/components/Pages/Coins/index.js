@@ -3,7 +3,8 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 
 function Coins() {
-  const [coinData, setCoinData] = useState({});
+  const [coinData, setCoinData] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +17,7 @@ function Coins() {
           'tiers[0]': '1',
           orderBy: 'marketCap',
           orderDirection: 'desc',
-          limit: '10',
+          limit: '10', // select how many coins you want to fetch 
           offset: '0',
         },
         headers: {
@@ -35,16 +36,11 @@ function Coins() {
 
     fetchData();
   }, []);
+
   return (
     <div>
-    <h1>Top 10 Coins</h1>
-    <ul>
-      {coinData.map((coin) => (
-        <li key={coin.uuid}>
-          {coin.name} - Market Cap: {coin.marketCap} - Price: {coin.price}
-        </li>
-      ))}
-    </ul>
+    <h1>Coins</h1>
+  
   </div>
   );
 }
