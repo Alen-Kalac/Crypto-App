@@ -6,20 +6,19 @@ import Exchanges from './components/Pages/Exchanges'
 import AboutUs  from './components/Pages/AboutUs'
 import MyProfile from './components/Pages/MyProfile'
 import Favorites from './components/Pages/Favorites'
-
-import Header from './components/Helper/Nav'
 import Footer from './components/Helper/Footer'
+import Navbar from './components/Helper/Nav'
 
 
 
 function App() {
   return (
   <>
-         <Header/>
+         <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/coins' element={<Coins />} />
-        <Route path='exchanges' element={<Exchanges />} />
+        <Route path='/exchanges' element={<Exchanges />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/my-profile' element={<MyProfile />} />
         <Route path='/favorites' element={<Favorites />} />
