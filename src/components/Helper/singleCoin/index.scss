@@ -1,12 +1,12 @@
 .coin-description{
-    width: 80%;
+    width: 90%;
     background-color: lightblue;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid lightgreen;
 
-    .div{
+    div{
         flex: 1;
         display: flex;
         justify-content: flex-start;
@@ -16,6 +16,9 @@
         }
     }
 
-   
+    .favorite, .calc,.coin-rank,.coin-icon{
+        flex: 0;
+        
+        }
 
 }

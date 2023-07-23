@@ -17,16 +17,12 @@ function SingleCoin({
     return (
         <>
             <div className="coin-description">
-                <div className="div">
-                 <div className="coin-rank">{rank}</div>
-                 <div className="coin-icon"><img style={{width:'50px'}} src={iconUrl} alt="" /></div>
-                 <div className="coin-name">{name}</div>
-                </div>
-               <div>
-                 <div className="coin-price">${Number(price).toLocaleString()}</div>
-                <div className="coin-24hVolume">${Number(hVolume).toLocaleString()}</div>
-                <div className="coin-martkerCap">${Number(marketCap).toLocaleString()}</div>
-                </div>
+                <div className="coin-rank">{rank}</div>
+                <div className="coin-icon"><img style={{width:'50px'}} src={iconUrl} alt="" /></div>
+                <div className="coin-name">{name}</div>
+                <div className="coin-price">{price}</div>
+                <div className="coin-24hVolume">{hVolume}</div>
+                <div className="coin-martkerCap">{marketCap}</div>
                 <div className="coin-graph">
                     <Sparklines style={{width:'200px'}} data={sparkline.map((el) => el)}>
                         <SparklinesLine color="blue" />
