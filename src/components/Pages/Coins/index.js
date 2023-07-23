@@ -1,10 +1,14 @@
 import './index.scss';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import SingleCoin from '../../Helper/singleCoin';
+import Pagination from '@mui/material/Pagination';
 
 function Coins() {
+  const itemsPerPage = 12; // Number of items to show per page
   const [coinData, setCoinData] = useState([]);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +21,7 @@ function Coins() {
           'tiers[0]': '1',
           orderBy: 'marketCap',
           orderDirection: 'desc',
-          limit: '10', // select how many coins you want to fetch 
+          limit: '100',
           offset: '0',
         },
         headers: {
@@ -37,11 +41,77 @@ function Coins() {
     fetchData();
   }, []);
 
+  // Filter the coinData based on the search term and names
+  const filteredCoins = coinData.filter((coin) =>
+    coin.name.toLowerCase().startsWith(searchTerm.toLowerCase())
+  );
+
+  // Check if the entered letter exists in the 'name' of any coin
+  const letterFound = filteredCoins.length > 0;
+
+  // Calculate the index of the first and last item for the current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredCoins.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page);
+  };
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+    setCurrentPage(1); // Reset to the first page when searching
+  };
+
   return (
-    <div>
-    <h1>Coins</h1>
-  
-  </div>
+    <div className='full-page-coins'>
+
+      <div className='input-bar'>
+      <input
+        type="text"
+        placeholder='Seacrh Cryptos'
+        value={searchTerm}
+        onChange={handleSearch}
+      />
+      </div>
+
+      <div className='row-titles'>
+        <span>Rank</span>
+        <span>Name</span>
+        <span>Price</span>
+        <span>24hVolume</span>
+        <span>marketCap</span>
+      </div>
+
+      {letterFound ? (
+        <>
+          {currentItems.map((coin) => (
+            <SingleCoin
+              key={coin.uuid}
+              uuid={coin.uuid}
+              rank={coin.rank}
+              iconUrl={coin.iconUrl}
+              name={coin.name}
+              price={coin.price}
+              hVolume={coin['24hVolume']}
+              marketCap={coin.marketCap}
+              sparkline={coin.sparkline.map((coin) => coin)}
+              // onClick={() => toggleFavoriteCoint(coin)}
+              coinData={coin}
+            />
+          ))}
+          <Pagination
+            count={Math.ceil(filteredCoins.length / itemsPerPage)} // Calculate total number of pages
+            page={currentPage}
+            onChange={handlePageChange}
+            variant="outlined"
+            shape="rounded"
+          />
+        </>
+      ) : (
+        <p>No matching coins found.</p>
+      )}
+    </div>
   );
 }
 
