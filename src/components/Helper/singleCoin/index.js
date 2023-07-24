@@ -16,18 +16,22 @@ function SingleCoin({
 }) {
     const { favouriteCoins, setFavouriteCoins } = useContext(appContext);
 
-    // Function to add the coin to favorites
+    // Function to add or remove the coin from favorites
     const handleAddToFavorites = () => {
-        setFavouriteCoins(prevFavorites => [...prevFavorites, {"uuid":uuid,
-        // 'rank':rank,
-        // 'icon':iconUrl,
-        // 'name':name,
-        // 'price':price,
-        // 'hVolume':hVolume,
-        // 'marketCap':marketCap,
-        // 'sparkline':sparkline,
-    }]);
+        // Check if the coin is already in favorites using its UUID
+        const isCoinInFavorites = favouriteCoins.some(coin => coin.uuid === uuid);
+
+        if (isCoinInFavorites) {
+            // If the coin is already in favorites, remove it from the list
+            const updatedFavorites = favouriteCoins.filter(coin => coin.uuid !== uuid);
+            setFavouriteCoins(updatedFavorites);
+        } else {
+            // If the coin is not in favorites, add it to the list
+            setFavouriteCoins(prevFavorites => [...prevFavorites, { "uuid": uuid }]);
+        }
     };
+
+
     return (
    
             <div className="coin-description" key={uuid}>
