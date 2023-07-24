@@ -9,9 +9,10 @@ function ExchangeCard({
 }) {
   return (
     <>
+
     <div className="card">
-        <div><img  className="icon"src={icon} alt="" />
-        <div className="rank">#{rank}</div></div>
+       
+        <div className="rank">#{rank} <img  className="icon"src={icon} alt="" /></div>
         <div className="name">{name}</div>
         <div className="price">${Number(price).toLocaleString()}</div>
         <a href={ctabutton}><button>Open Exchange</button></a>
