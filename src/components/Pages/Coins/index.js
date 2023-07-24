@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import SingleCoin from '../../Helper/singleCoin';
 import Pagination from '@mui/material/Pagination';
+import ColumnTitles from '../../Helper/Column-titles';
+
 
 function Coins() {
   const itemsPerPage = 12; // Number of items to show per page
@@ -75,14 +77,7 @@ function Coins() {
       />
       </div>
 
-      <div className='row-titles'>
-        <span>Rank</span>
-        <span>Name</span>
-        <span>Price</span>
-        <span>24hVolume</span>
-        <span>marketCap</span>
-      </div>
-
+       <ColumnTitles/>
       {letterFound ? (
         <>
           {currentItems.map((coin) => (
@@ -100,13 +95,16 @@ function Coins() {
               coinData={coin}
             />
           ))}
-          <Pagination
+          <div className="pagination">
+            <Pagination
             count={Math.ceil(filteredCoins.length / itemsPerPage)} // Calculate total number of pages
             page={currentPage}
             onChange={handlePageChange}
             variant="outlined"
             shape="rounded"
           />
+          </div>
+          
         </>
       ) : (
         <p>No matching coins found.</p>
