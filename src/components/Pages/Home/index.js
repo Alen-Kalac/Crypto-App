@@ -1,6 +1,7 @@
 import './index.scss';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import ColumnTitles from '../../Helper/Column-titles';
 import SingleCoin from '../../Helper/singleCoin';
 
 function Home() {
@@ -38,23 +39,24 @@ function Home() {
   }, []);
   return (
     <div className='home-page'>
-    <h1>Top 10 Coins</h1>
+      <p className='title'>Top 10 <span>List</span> </p>
       <div className="coin-list">
-      {coinData.map((coin) => (
-       <SingleCoin key={coin.uuid}
-       uuid={coin.uuid}
-       rank={coin.rank}
-       iconUrl={coin.iconUrl}
-       name={coin.name}
-       price={coin.price}
-       hVolume={coin["24hVolume"]}
-       marketCap={coin.marketCap}
-       sparkline={coin.sparkline.map((coin) => coin)}
-      //  onClick={() => toggleFavoriteCoint(coin)}
-       coinData={coin} />
-      ))}
+      <ColumnTitles/>
+        {coinData.map((coin) => (
+          <SingleCoin key={coin.uuid}
+            uuid={coin.uuid}
+            rank={coin.rank}
+            iconUrl={coin.iconUrl}
+            name={coin.name}
+            price={coin.price}
+            hVolume={coin["24hVolume"]}
+            marketCap={coin.marketCap}
+            sparkline={coin.sparkline.map((coin) => coin)}
+            //  onClick={() => toggleFavoriteCoint(coin)}
+            coinData={coin} />
+        ))}
       </div>
-  </div>
+    </div>
   );
 }
 
