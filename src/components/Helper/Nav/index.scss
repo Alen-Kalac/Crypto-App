@@ -1,7 +1,7 @@
 .navbar {
     width: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(102, 102, 0);
+    background-color: #124E78;
     padding: 0 8%;
     height: 80px;
     border-bottom-left-radius: 10px;
@@ -9,21 +9,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     a {
         text-decoration: none;
         color: black;
     }
 
     .logo {
-        a{
+        a {
+            color: white;
+            font-weight: bold;
             display: flex;
-        align-items: center;
+            align-items: center;
         }
-      img {
-        margin-right: 5px;
-        height: 40px;
-      }
+
+        img {
+            margin-right: 5px;
+            height: 40px;
+        }
     }
+
     .nav-items {
         background-color: white;
         padding: 1% 4.5%;
@@ -33,21 +38,30 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .active {
-            color: blue;
+            color: #3d6dd4;
+            font-weight: bold;
         }
+
         .heart {
             margin-top: 5px;
             font-size: 25px;
         }
     }
+
     .profile {
         width: 145px;
         margin-top: 7px;
         display: flex;
         justify-content: flex-end;
+
         span {
-            font-size: 30px;
+            a {
+                color: white;
+                font-size: 30px;
+            }
+
         }
     }
 }
