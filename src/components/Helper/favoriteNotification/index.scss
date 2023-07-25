@@ -1,0 +1,15 @@
+.notification{
+    position: absolute;
+    bottom: 50;
+    left: 50;
+    width: 350px;
+    border-radius: 20px;
+    height: 80px;
+
+    p{
+        font-size: 16px;
+    }
+    svg{
+        width: 20px;
+    }
+}
