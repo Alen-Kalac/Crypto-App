@@ -14,7 +14,7 @@ const InfoCard = ({
     <div className="container">
       <div className="card">
         <div className="image">
-          <img src={img} alt="person"></img>
+          <img className='person' src={img} alt="person"></img>
           <h2>{name}</h2>
           <i>Novi Pazar,Serbia</i>  
         </div>

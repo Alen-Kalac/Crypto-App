@@ -16,11 +16,11 @@ const ourInfo = [
     gitHubLink: 'https://github.com/mehmedmekic08',
   },
   {
-    name: 'Muhamed',
+    name: 'Muhamed Gusinac',
     description:
     "Muhamed is currently a beginner in web development",
-    img: '',
-    gitHubLink: '',
+    img: 'https://avatars.githubusercontent.com/u/111769390?v=4',
+    gitHubLink: 'https://github.com/muhamed-gusinac',
   },
   {
     name: 'Alen Kalac',
@@ -30,11 +30,11 @@ const ourInfo = [
     gitHubLink: 'https://github.com/Alen-Kalac',
   },
   {
-    name: 'zaboravio sam',
+    name: 'Demir Subasic',
     description:
-    "____ is currently a beginner in web development",
-    img: '',
-    gitHubLink: '',
+    "Demir is currently a beginner in web development",
+    img: 'https://avatars.githubusercontent.com/u/117202634?v=4',
+    gitHubLink: 'https://github.com/demirsubasic2001',
   },
   {
     name: 'Remzo Gusinac',

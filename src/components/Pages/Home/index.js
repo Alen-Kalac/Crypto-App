@@ -4,6 +4,7 @@ import axios from 'axios';
 import ColumnTitles from '../../Helper/Column-titles';
 import SingleCoin from '../../Helper/singleCoin';
 
+
 function Home() {
   const [coinData, setCoinData] = useState([]);
 
