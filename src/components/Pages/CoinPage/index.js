@@ -23,7 +23,7 @@ function CoinPage() {
 
       try {
         const response = await axios.request(options);
-        setCoinData(response.data);
+        setCoinData(response.data.data.coin);
       } catch (error) {
         console.error(error);
       }
@@ -38,10 +38,10 @@ function CoinPage() {
 
   return (
     <div>
-      <h1>Coin Page for UUID: {uuid}</h1>
+      <h1>Coin Page for UUID: {coinData.uuid}</h1>
       
-      <div>Name: {coinData?.data?.coin?.name}</div>
-      <div>Symbol: {coinData?.data?.coin?.symbol}</div>
+      <div>Name: {coinData.name}</div>
+      <div>Symbol: {coinData.symbol}</div>
      
     </div>
   );
