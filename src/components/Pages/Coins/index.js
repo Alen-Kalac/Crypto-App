@@ -11,6 +11,7 @@ function Coins() {
   const [coinData, setCoinData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,8 +36,12 @@ function Coins() {
       try {
         const response = await axios.request(options);
         setCoinData(response.data?.data?.coins || []);
+        setLoading(false); // Set loading to false when data is fetched
+
       } catch (error) {
         console.error(error);
+        setLoading(false); // Set loading to false when data is fetched
+
       }
     };
 
@@ -64,6 +69,10 @@ function Coins() {
     setSearchTerm(event.target.value);
     setCurrentPage(1); // Reset to the first page when searching
   };
+
+  if (loading) { // Display "Loading..." while loading is true
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className='full-page-coins'>

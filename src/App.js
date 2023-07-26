@@ -8,6 +8,7 @@ import MyProfile from './components/Pages/MyProfile'
 import Favorites from './components/Pages/Favorites'
 import Footer from './components/Helper/Footer'
 import Navbar from './components/Helper/Nav'
+import CoinPage from './components/Pages/CoinPage'
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/my-profile' element={<MyProfile />} />
         <Route path='/favorites' element={<Favorites />} />
+        <Route path="/:uuid" element={<CoinPage/>} />
       </Routes>
         <Footer/>
   </>
