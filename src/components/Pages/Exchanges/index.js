@@ -8,6 +8,8 @@ function Exchanges() {
   const itemsPerPage = 12; // Number of items to show per page
   const [exchangesData, setExchangesData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true); // Add a loading state
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,13 +32,21 @@ function Exchanges() {
       try {
         const response = await axios.request(options);
         setExchangesData(response.data?.data?.exchanges || []);
+        setLoading(false); // Set loading to false when data is fetched
+
       } catch (error) {
         console.error(error);
+        setLoading(false); // Set loading to false when data is fetched
+
       }
     };
 
     fetchData();
   }, []);
+
+  if (loading) { // Display "Loading..." while loading is true
+    return <div>Loading...</div>;
+  }
 
   // Calculate the index of the first and last item for the current page
   const indexOfLastItem = currentPage * itemsPerPage;

@@ -6,6 +6,7 @@ import SingleCoin from '../../Helper/singleCoin';
 
 function Home() {
   const [coinData, setCoinData] = useState([]);
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,13 +31,20 @@ function Home() {
       try {
         const response = await axios.request(options);
         setCoinData(response.data?.data?.coins || []);
+        setLoading(false); // Set loading to false when data is fetched
       } catch (error) {
         console.error(error);
+        setLoading(false); // Set loading to false when data is fetched
       }
     };
 
     fetchData();
   }, []);
+
+  if (loading) { // Display "Loading..." while loading is true
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className='home-page'>
       <p className='title'>Top 10 <span>List</span> </p>

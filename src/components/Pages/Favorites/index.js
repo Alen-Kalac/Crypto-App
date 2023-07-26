@@ -8,6 +8,8 @@ import { appContext } from '../../../Context'; // Update the path accordingly
 function Favorites() {
   const { favouriteCoins } = useContext(appContext);
   const [coinData, setCoinData] = useState([]);
+  const [loading, setLoading] = useState(true); // Add a loading state
+
 
   // Fetch data when favouriteCoins change
   useEffect(() => {
@@ -31,8 +33,10 @@ function Favorites() {
         try {
           const response = await axios.request(options);
           coinDataArray.push(response.data?.data?.coin || {});
+          setLoading(false); // Set loading to false when data is fetched
         } catch (error) {
           console.error(error);
+          setLoading(false); // Set loading to false when data is fetched
         }
       }
 
@@ -44,6 +48,9 @@ function Favorites() {
     }
   }, [favouriteCoins]);
 
+  if (loading) { // Display "Loading..." while loading is true
+    return <div>Loading...</div>;
+  }
   return (
     <div className="favorites-page">
       <div className="title">Your favorites</div>
