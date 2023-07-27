@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { SparklinesLine, Sparklines } from 'react-sparklines';
 import { appContext } from '../../../Context';
 import { AiFillCalculator } from 'react-icons/ai';
+import {RiCloseFill} from 'react-icons/ri'
 import { Link } from 'react-router-dom';
 
 function SingleCoin({
@@ -88,16 +89,16 @@ function SingleCoin({
       {showModal && (
         <div className="modal-overlay">
           <div className="modal">
+             <p className='close-button' onClick={handleCloseModal}><RiCloseFill /></p>
             <div className="calc-title">
               <p>{modalData.name}</p>
               <img src={modalData.iconUrl} alt={modalData.name} />
             </div>
             <div className="inputs-div">
               <input className="quantity" type="number" onChange={handleQuantityChange} />
-              X
+              <RiCloseFill />
               <input readOnly type="text" value={Number(modalData.price).toLocaleString()} /> =
               <input readOnly value={Number(result).toLocaleString()} />
-              <button onClick={handleCloseModal}>Close</button>
             </div>
           </div>
         </div>
