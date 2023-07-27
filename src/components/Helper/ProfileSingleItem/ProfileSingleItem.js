@@ -26,7 +26,7 @@ function ProfileSingleItem({
     };
     return (
    
-            <div className="coin-description" key={uuid}>
+            <div className="coin-description-profile" key={uuid}>
                 <div className="coin-rank">{rank}</div>
                 <div className="coin-icon"><img style={{ width: '50px' }} src={iconUrl} alt="" /></div>
                 <div className="coin-price">${Number(price).toLocaleString()}</div>
