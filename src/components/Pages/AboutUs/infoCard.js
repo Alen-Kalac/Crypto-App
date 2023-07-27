@@ -11,15 +11,16 @@ const InfoCard = ({
   gitHubLink
 }) => {
   return (
+  <div className='Parent'>
     <div className="container">
       <div className="card">
         <div className="image">
           <img className='person' src={img} alt="person"></img>
-          <h2>{name}</h2>
-          <i>Novi Pazar,Serbia</i>  
+          <h2 className='Name'>{name}</h2>
+          <i className='location'>Novi Pazar,Serbia</i>  
         </div>
         <div className="content">
-          <p>{description}</p>
+          <p className='desc'>{description}</p>
           <div>
             <a href={gitHubLink} target="_blank" rel="noreferrer">
               <AiFillGithub className="icons-about" />
@@ -28,6 +29,7 @@ const InfoCard = ({
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
