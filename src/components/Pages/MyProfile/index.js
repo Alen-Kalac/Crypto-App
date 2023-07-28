@@ -98,7 +98,7 @@ function MyProfile() {
                     <span className='amount-title'>Amount</span>
                   </div>
                   {coinData.map((coin) => (
-                    <div style={{ width: '70vw', display: 'flex', alignItems: 'center' }} key={coin.uuid}>
+                    <div style={{ width: '70vw', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} key={coin.uuid}>
                       <ProfileSingleItem
                         uuid={coin.uuid}
                         rank={coin.rank}

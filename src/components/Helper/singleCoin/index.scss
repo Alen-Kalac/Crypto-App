@@ -50,6 +50,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    overflow: hidden;
 
     .modal {
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
