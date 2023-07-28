@@ -144,6 +144,7 @@ function CoinPage() {
 
       </div>
       </div>
+      
     </div>
   );
 }

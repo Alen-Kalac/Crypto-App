@@ -1,0 +1,19 @@
+
+.about-us-full-page {
+    width: 100%;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+
+    .first-row {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+    }
+    .second-row{
+        display: flex;
+        justify-content: space-between;
+    }
+  }
+  
+  
