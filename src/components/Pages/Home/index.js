@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ColumnTitles from '../../Helper/Column-titles';
 import SingleCoin from '../../Helper/singleCoin';
+import LoadingPage from '../loadingPage';
 
 function Home() {
   const [coinData, setCoinData] = useState([]);
@@ -42,7 +43,7 @@ function Home() {
   }, []);
 
   if (loading) { // Display "Loading..." while loading is true
-    return <div>Loading...</div>;
+    return <LoadingPage/>;
   }
 
   return (

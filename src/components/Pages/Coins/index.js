@@ -4,6 +4,7 @@ import axios from 'axios';
 import SingleCoin from '../../Helper/singleCoin';
 import Pagination from '@mui/material/Pagination';
 import ColumnTitles from '../../Helper/Column-titles';
+import LoadingPage from '../loadingPage';
 
 
 function Coins() {
@@ -71,7 +72,7 @@ function Coins() {
   };
 
   if (loading) { // Display "Loading..." while loading is true
-    return <div>Loading...</div>;
+    return <LoadingPage/>;
   }
 
   return (

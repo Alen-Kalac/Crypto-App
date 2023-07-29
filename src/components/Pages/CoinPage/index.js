@@ -11,6 +11,7 @@ import {FaDroplet} from 'react-icons/fa6'
 import {MdOutlineWaves} from 'react-icons/md'
 import {BiSolidBadgeCheck} from 'react-icons/bi'
 import {GoVerified} from 'react-icons/go'
+import LoadingPage from '../loadingPage';
 
 function CoinPage() {
   const { uuid } = useParams();
@@ -70,7 +71,7 @@ function CoinPage() {
   }, [uuid]);
 
   if (!coinData) {
-    return <div>Loading...</div>;
+    return <LoadingPage/>;
   }
 
   return (
