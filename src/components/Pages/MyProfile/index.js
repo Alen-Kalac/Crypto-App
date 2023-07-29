@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.scss';
 import axios from 'axios';
 import ProfileSingleItem from '../../Helper/ProfileSingleItem/ProfileSingleItem';
+import LoadingPage from '../loadingPage';
 
 function MyProfile() {
   const [showModal, setShowModal] = useState(false);
@@ -9,6 +10,7 @@ function MyProfile() {
   const [amounts, setAmounts] = useState({});
   const [addedItems, setAddedItems] = useState([]);
   const [coinData, setCoinData] = useState([]);
+  const [isLoading,setIsLoading] = useState(true)
 
   const handleClose = () => setShowModal(false);
   const handleSuccess = () => {
@@ -40,6 +42,7 @@ function MyProfile() {
       try {
         const response = await axios.request(options);
         setCoinData(response.data?.data?.coins || []);
+        setIsLoading(false)
       } catch (error) {
         console.error(error);
       }
@@ -64,6 +67,9 @@ function MyProfile() {
     setAmounts((prevAmounts) => ({ ...prevAmounts, [name]: value }));
   };
 
+  if (isLoading) { // Display "Loading..." while loading is true
+    return <LoadingPage/>;
+  }
   return (
     <>
       <div className='full-page-profile'>

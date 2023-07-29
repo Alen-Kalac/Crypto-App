@@ -5,6 +5,14 @@
     justify-content: center;
     padding-top: 50px;
 
+    h1{
+        font-size: 3rem;
+        padding-bottom: 5%;
+
+        span{
+            color: #4169e1;
+        }
+    }
     .exchanges-list{
         width: 100%;
         display: flex;

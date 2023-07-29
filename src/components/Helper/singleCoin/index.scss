@@ -11,6 +11,13 @@
     justify-content: flex-start;
   }
 
+  .coin-name{
+    a{
+      color: black;
+      text-decoration: none;
+    }
+  }
+
   .coin-rank,
   .coin-icon,
   .favorite,
@@ -112,4 +119,11 @@
       }
     }
   }
+
+  .success-modal{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+  }
 }
+

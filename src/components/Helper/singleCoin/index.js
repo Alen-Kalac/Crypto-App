@@ -5,6 +5,7 @@ import { appContext } from '../../../Context';
 import { AiFillCalculator } from 'react-icons/ai';
 import {RiCloseFill} from 'react-icons/ri'
 import { Link } from 'react-router-dom';
+import { Toaster,toast} from 'react-hot-toast';
 
 function SingleCoin({
   uuid,
@@ -37,13 +38,40 @@ function SingleCoin({
     // Check if the coin is already in favorites using its UUID
     const isCoinInFavorites = favouriteCoins.some((coin) => coin.uuid === uuid);
 
+   
+    
     if (isCoinInFavorites) {
       // If the coin is already in favorites, remove it from the list
       const updatedFavorites = favouriteCoins.filter((coin) => coin.uuid !== uuid);
       setFavouriteCoins(updatedFavorites);
+      toast.success('Coin sucessfully removed to favorites !', {
+        style: {
+          border: '1px solid #124E78',
+          padding: '16px',
+          color: '#124E78',
+          boxShadow:"none"
+        },
+        iconTheme: {
+          primary: '#124E78',
+          secondary: '#FFFAEE',
+        },
+      });
     } else {
       // If the coin is not in favorites, add it to the list
       setFavouriteCoins((prevFavorites) => [...prevFavorites, { uuid }]);
+
+      toast.success('Coin sucessfully added to favorites !', {
+        style: {
+          border: '1px solid #124E78',
+          padding: '16px',
+          color: '#124E78',
+          boxShadow:"none"
+        },
+        iconTheme: {
+          primary: '#124E78',
+          secondary: '#FFFAEE',
+        },
+      });
     }
 
   };
@@ -59,13 +87,21 @@ function SingleCoin({
 
   return (
     <div className="coin-description" key={uuid}>
-      <div className="coin-rank">{rank}</div>
+      <Toaster 
+      position="bottom-left"
+      
+      />
+      <div className="coin-rank">{rank}.</div>
       <div className="coin-icon">
         <Link to={`/${uuid}`}>
           <img style={{ width: '50px' }} src={iconUrl} alt="" />
         </Link>
       </div>
-      <div className="coin-name">{name}</div>
+      <div className="coin-name">
+      <Link to={`/${uuid}`}>
+        <b>{name}</b>
+      </Link>
+        </div>
       <div className="coin-price">${Number(price).toLocaleString()}</div>
       <div className="coin-24hVolume">${Number(hVolume).toLocaleString()}</div>
       <div className="coin-marketCap">${Number(marketCap).toLocaleString()}</div>

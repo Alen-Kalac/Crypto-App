@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ExchangeCard from "../../Helper/ExchangeSingle";
 import Pagination from "@mui/material/Pagination";
+import LoadingPage from "../loadingPage";
 
 function Exchanges() {
   const itemsPerPage = 12; // Number of items to show per page
@@ -45,7 +46,7 @@ function Exchanges() {
   }, []);
 
   if (loading) { // Display "Loading..." while loading is true
-    return <div>Loading...</div>;
+    return <LoadingPage/>;
   }
 
   // Calculate the index of the first and last item for the current page
@@ -59,6 +60,7 @@ function Exchanges() {
 
   return (
     <div className="exchanges-page">
+      <h1>Best place to  <span>exchange</span>  your coins !</h1>
       <div className="exchanges-list">
         {currentItems.map((exchange) => (
           <ExchangeCard

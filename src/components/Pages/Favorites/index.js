@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import SingleCoin from '../../Helper/singleCoin';
 import ColumnTitles from '../../Helper/Column-titles';
 import { appContext } from '../../../Context'; // Update the path accordingly
+import LoadingPage from '../loadingPage'
 
 function Favorites() {
   const { favouriteCoins } = useContext(appContext);
@@ -49,7 +50,7 @@ function Favorites() {
   }, [favouriteCoins]);
 
   if (loading) { // Display "Loading..." while loading is true
-    return <div>Loading...</div>;
+    return <LoadingPage/>;
   }
   return (
     <div className="favorites-page">
